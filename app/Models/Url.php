@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Url extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id','code','url','expirtation'];
+
+    public function user(){
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }
