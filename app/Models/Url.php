@@ -14,4 +14,22 @@ class Url extends Model
     public function user(){
         return $this->hasOne(User::class, 'id', 'user_id');
     }
+
+    // public function short_url($long_url){
+    //     //Crear Url
+    //     $url = self::create([
+    //         'url' => $long_url,
+    //         'user_id' => auth()->user()->id
+    //     ]);
+
+    //     //Generar codigo
+    //     $code = (new CodeGenerator())->get_code($url->id);
+
+    //     //Actualizar URL
+    //     $url->code = $code;
+    //     $url->save();
+
+    //     //Retornar código
+    //     return $url->code;
+    // }
 }
