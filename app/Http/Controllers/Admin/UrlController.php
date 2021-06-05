@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class UrlController extends Controller
 {
-    public function show($code = "")
+    public function show(Request $request, $code = "")
     {
         $url = Url::where('code', $code)->firstOrFail();
         if ($url) {
