@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
 
                     <div class="flex">
-                        <input id="logn_url" type="text" name="" placeholder="Pega la URL aqui"
+                        <input id="long_url" type="text" name="" placeholder="Pega la URL aqui"
                             class="w-full px-4 py-3 rounded">
                         <button
                             class="ml-4 w-auto px-6 py-3 font-semibold bg-gray-900 text-white rounded"
@@ -20,7 +20,7 @@
                     </div>
 
                     <div id="short_url_container" class="flex py-5" style="display: none;">
-                        <input id="shor_url" type="text" placeholder="" class="w-full px-4 py-3 rounded"
+                        <input id="short_url" type="text" placeholder="" class="w-full px-4 py-3 rounded"
                         onclick="shorter.copy_url()"
                         >
                     </div>

@@ -25,3 +25,11 @@ require __DIR__.'/auth.php';
 
 Route::get('url/{code}', [App\Http\Controllers\Admin\UrlController::class, 'show'] );
 Route::post('url', [App\Http\Controllers\Admin\UrlController::class, 'store'] );
+
+Route::get('test', function () {
+    list($ms, $s) = explode(' ', microtime());
+        $s = $s - 1608000000;
+        $ms = round($ms * 1000);
+        $ms = ($ms < 100) ? $ms * 10 : $ms;
+        dd($ms);
+});

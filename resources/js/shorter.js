@@ -1,8 +1,7 @@
 window.shorter = {
     short_url: () => {
         let long_url = document.getElementById('long_url').value;
-        if(shorter.validate_url()){
-
+        if(shorter.validate_url(long_url)){
             axios.post('/url',{
                 long_url : long_url
             }).then((response) => {
@@ -28,5 +27,10 @@ window.shorter = {
             status = false;
             alert('Debe colocar una URL');
         }
+        if(!validUrl.isWebUri(url)){
+            status = false;
+            alert('URL no valida');
+        }
+        return status;
     }
 }

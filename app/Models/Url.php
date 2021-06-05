@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Classes\CodeGenerator;
 
 class Url extends Model
 {
@@ -15,21 +16,19 @@ class Url extends Model
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    // public function short_url($long_url){
-    //     //Crear Url
-    //     $url = self::create([
-    //         'url' => $long_url,
-    //         'user_id' => auth()->user()->id
-    //     ]);
+    public function short_url($long_url){
+        $url = self::create([
+            'url' => $long_url,
+            'user_id' => auth()->user()->id
+            ]);
 
-    //     //Generar codigo
-    //     $code = (new CodeGenerator())->get_code($url->id);
+        //Generación del código
+        $code = (new CodeGenerator())->get_code($url->id);
 
-    //     //Actualizar URL
-    //     $url->code = $code;
-    //     $url->save();
+        //Actualizar el código en la url
+        $url->code = $code;
+        $url->save();
 
-    //     //Retornar código
-    //     return $url->code;
-    // }
+        return $url->code;
+    }
 }
